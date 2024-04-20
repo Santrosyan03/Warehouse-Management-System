@@ -11,8 +11,7 @@ import org.warehouse.model.user.UserFunctionalities;
 
 import java.util.HashMap;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestUserFunctionality {
     private UserFunctionalities functionalities;
@@ -25,16 +24,6 @@ class TestUserFunctionality {
         WareHouse wareHouse = new WareHouse(new HashMap<>());
         user = new User("User1", wareHouse, 5, 100, 45);
         functionalities = new UserFunctionalities(user);
-    }
-
-    @Test
-    void testLogIn() throws InterruptedException {
-        assertEquals("Logged in", functionalities.logIn());
-    }
-
-    @Test
-    void testLogOut() throws InterruptedException {
-        assertEquals("Logged out", functionalities.logOut());
     }
 
     @Test

@@ -2,12 +2,12 @@ package org.warehouse.model.user;
 
 import org.warehouse.exceptions.*;
 import org.warehouse.management.WareHouse;
-import org.warehouse.model.material.MaterialType;
+import org.warehouse.model.material.Material;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * Provides implementations for user functionalities such as login, logout,
+ * Provides implementations for user functionalities such as
  * level upgrade, and currency management within an application context.
  */
 public class UserFunctionalities implements UserFunctionalitiesInterface {
@@ -20,30 +20,6 @@ public class UserFunctionalities implements UserFunctionalitiesInterface {
     }
 
     /**
-     * Simulates a login process with a delay.
-     * @throws InterruptedException if the sleep is interrupted.
-     */
-    @Override
-    public String logIn() throws InterruptedException {
-        System.out.println("Logging in...");
-        TimeUnit.SECONDS.sleep(5);
-        System.out.println("Logged in");
-        return "Logged in";
-    }
-
-    /**
-     * Simulates a logout process with a delay.
-     * @throws InterruptedException if the sleep is interrupted.
-     */
-    @Override
-    public String logOut() throws InterruptedException {
-        System.out.println("Logging out...");
-        TimeUnit.SECONDS.sleep(5);
-        System.out.println("Logged out");
-        return "Logged out";
-    }
-
-    /**
      * Upgrades the user's level by incrementing it.
      */
     @Override
@@ -52,18 +28,18 @@ public class UserFunctionalities implements UserFunctionalitiesInterface {
     }
 
     /**
-     * Checks and displays the inventory quantity of a specified material type in a designated warehouse.
+     * Checks and displays the inventory quantity of a specified material in a designated warehouse.
      *
      * @param assignedWarehouse The warehouse from which to check the inventory.
-     *                          This warehouse object must contain the inventory data for various material types.
-     * @param type The type of material for which the inventory needs to be checked.
+     *                          This warehouse object must contain the inventory data for various materials.
+     * @param material The material for which the inventory needs to be checked.
      *             This specifies which material's stock level is being queried.
      */
     @Override
-    public void checkInventory(WareHouse assignedWarehouse, MaterialType type) {
+    public void checkInventory(WareHouse assignedWarehouse, Material material) {
         try {
-            int quantity = assignedWarehouse.getMaterialQuantity(assignedWarehouse, type);
-            System.out.println("Inventory for " + type.getName() + ": " + quantity);
+            int quantity = assignedWarehouse.getMaterialQuantity(assignedWarehouse, material);
+            System.out.println("Inventory for " + material.getMaterialType().getName() + ": " + quantity);
         } catch (MaterialNotFound e) {
             System.out.println(e.getMessage());
         }

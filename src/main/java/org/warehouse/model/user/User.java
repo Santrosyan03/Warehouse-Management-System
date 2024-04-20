@@ -2,16 +2,18 @@ package org.warehouse.model.user;
 
 import org.warehouse.management.WareHouse;
 
+import java.util.Map;
+
 public class User {
     private String userName;
-    private WareHouse assignedWarehouse;
+    private Map<Integer, WareHouse> assignedWarehouses;
     private int gems;
     private int money;
     private int level;
 
-    public User(String userName, WareHouse warehouse, int gems, int money, int level) {
+    public User(String userName, Map<Integer, WareHouse> warehouses, int gems, int money, int level) {
         this.userName = userName;
-        this.assignedWarehouse = warehouse;
+        this.assignedWarehouses = warehouses;
         this.gems = gems;
         this.money = money;
         this.level = level;
@@ -47,5 +49,13 @@ public class User {
 
     public void setLevel() {
         this.level += 1;
+    }
+
+    public Map<Integer, WareHouse> getAssignedWarehouses() {
+        return assignedWarehouses;
+    }
+
+    public void setAssignedWarehouses(Map<Integer, WareHouse> assignedWarehouses) {
+        this.assignedWarehouses = assignedWarehouses;
     }
 }

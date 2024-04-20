@@ -12,7 +12,6 @@ This Warehouse Management System (WMS) is designed to help manage and automate v
 
 ## Features
 - **Inventory Tracking**: Monitor and manage the quantities of different materials within the warehouse.
-- **User Management**: Handle login and logout functionalities, allowing different users to interact with the system.
 - **Transaction Management**: Users can perform transactions related to spending and acquiring money and gems.
 - **Level Advancement**: Users have the ability to upgrade their levels based on predefined criteria.
 

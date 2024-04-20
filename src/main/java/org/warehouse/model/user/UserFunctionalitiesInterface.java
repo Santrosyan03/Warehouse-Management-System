@@ -5,13 +5,11 @@ import org.warehouse.exceptions.InvalidQuantityOfGems;
 import org.warehouse.exceptions.ExceedingAmountOfGems;
 import org.warehouse.exceptions.InvalidQuantityOfMoney;
 import org.warehouse.management.WareHouse;
-import org.warehouse.model.material.MaterialType;
+import org.warehouse.model.material.Material;
 
 public interface UserFunctionalitiesInterface {
-    String logIn() throws InterruptedException;
-    String logOut() throws InterruptedException;
     void upgradeLevel();
-    void checkInventory(WareHouse assignedWarehouse, MaterialType type);
+    void checkInventory(WareHouse assignedWarehouse, Material material);
     int updateMoney(int quantity) throws InvalidQuantityOfMoney;
     int updateGems(int quantity) throws InvalidQuantityOfGems;
     int spendMoney(int quantity) throws InvalidQuantityOfMoney, ExceedingAmountOfMoney;
